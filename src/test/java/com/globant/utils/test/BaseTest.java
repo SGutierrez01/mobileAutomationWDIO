@@ -42,6 +42,7 @@ public class BaseTest {
         capabilities.setDeviceName(getCapability("deviceName"));
         capabilities.setAppPackage(getCapability("appPackage"));
         capabilities.setAppActivity(getCapability("appActivity"));
+        capabilities.setCapability("appium:disableIdLocatorAutocompletion", true);
     }
 
     public static String getCapability(String capability) {
