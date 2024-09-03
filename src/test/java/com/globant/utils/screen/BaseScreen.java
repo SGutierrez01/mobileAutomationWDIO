@@ -1,4 +1,4 @@
-package com.globant.utils.screens;
+package com.globant.utils.screen;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;

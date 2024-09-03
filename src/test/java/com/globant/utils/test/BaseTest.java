@@ -1,4 +1,4 @@
-package com.globant.utils.tests;
+package com.globant.utils.test;
 
 import com.globant.screens.HomeScreen;
 import io.appium.java_client.android.AndroidDriver;
@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 import java.util.Properties;
 
 public class BaseTest {
-    private static final String PROPERTIES_FILE = "src/test/resources/test.properties";
+    private static final String PROPERTIES_FILE = "src/test/resources/config.properties";
     private static final Properties properties = new Properties();
     private static AndroidDriver driver;
 
