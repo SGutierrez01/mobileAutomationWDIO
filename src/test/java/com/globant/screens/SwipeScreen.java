@@ -10,9 +10,11 @@ public class SwipeScreen extends BaseScreen {
 
     private static final String SWIPE_TITLE = "UiSelector().text(\"Swipe horizontal\")";
     private static final String CARROUSEL = "UiSelector().className(\"android.view.ViewGroup\").instance(9)";
-    private static final String CARROUSEL_ITEM1 = "__CAROUSEL_ITEM_0_READY__";
+    private static final String CARROUSEL_FIRST_ITEM = "__CAROUSEL_ITEM_0_READY__";
+    private static final String CARROUSEL_FINAL_ITEM = "__CAROUSEL_ITEM_5_READY__";
     private static final String WEBDRIVER_LOGO = "WebdriverIO logo";
     private static final String FOUND_ME_TEXT = "UiSelector().text(\"You found me!!!\")";
+
 
     @AndroidFindBy(uiAutomator = SWIPE_TITLE)
     private WebElement swipeTitle;
@@ -20,8 +22,11 @@ public class SwipeScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = CARROUSEL)
     private WebElement carrousel;
 
-    @AndroidFindBy(id = CARROUSEL_ITEM1)
-    private WebElement carrouselItem1;
+    @AndroidFindBy(id = CARROUSEL_FIRST_ITEM)
+    private WebElement carrouselFirstItem;
+
+    @AndroidFindBy(id = CARROUSEL_FINAL_ITEM)
+    private WebElement carrouselFinalItem;
 
     @AndroidFindBy(accessibility = WEBDRIVER_LOGO)
     private WebElement webdriverLogo;
@@ -46,8 +51,20 @@ public class SwipeScreen extends BaseScreen {
         return isElementDisplayed(carrousel);
     }
 
-    public boolean isCarrouselItem1Displayed() {
-        return isElementDisplayed(carrouselItem1);
+    public boolean isCarrouselItemFirstDisplayed() {
+        return isElementDisplayed(carrouselFirstItem);
+    }
+
+    public boolean isCarrouselFirstItemVisible() {
+        return isElementVisible(carrouselFirstItem);
+    }
+
+    public boolean isCarrouselFinalItemDisplayed() {
+        return isElementDisplayed(carrouselFinalItem);
+    }
+
+    public boolean isCarrouselFinalItemVisible() {
+        return isElementVisible(carrouselFinalItem);
     }
 
     public boolean isWebdriverLogoVisible() {

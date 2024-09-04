@@ -15,14 +15,28 @@ public class SwipeTest extends BaseTest {
         SwipeScreen swipeScreen = homeScreen.clickOnSwipeScreenBarBtn();
         Assert.assertTrue(swipeScreen.isSwipeTitleDisplayed());
 
-        swipeUntilFound(swipeScreen);
+        Assert.assertTrue(swipeScreen.isCarrouselDisplayed());
+
+        swipeRightUntilFound(swipeScreen);
+        Assert.assertFalse(swipeScreen.isCarrouselFirstItemVisible());
+        Assert.assertTrue(swipeScreen.isCarrouselFinalItemDisplayed());
+
+        swipeDownUntilFound(swipeScreen);
 
         Assert.assertTrue(swipeScreen.isWebdriverLogoDisplayed());
         Assert.assertTrue(swipeScreen.isFoundMeTextDisplayed());
         Assert.assertEquals(swipeScreen.getFoundMeText(), "You found me!!!");
     }
 
-    private void swipeUntilFound(SwipeScreen swipeScreen) {
+    private void swipeRightUntilFound(SwipeScreen swipeScreen) {
+        int attempts = 0;
+        while((swipeScreen.isCarrouselFirstItemVisible() || !swipeScreen.isCarrouselFinalItemVisible()) && attempts < 10){
+            swipeScreen.scrollRight();
+            attempts++;
+        }
+    }
+
+    private void swipeDownUntilFound(SwipeScreen swipeScreen) {
         int attempts = 0;
         while(!swipeScreen.isWebdriverLogoVisible() && !swipeScreen.isFoundMeTextVisible() && attempts < 10){
             swipeScreen.scrollDown();

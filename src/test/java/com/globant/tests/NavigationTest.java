@@ -51,11 +51,7 @@ public class NavigationTest extends BaseTest{
         Assert.assertTrue(swipeScreen.isSwipeTitleDisplayed());
         Assert.assertEquals(swipeScreen.getSwipeTitleText(), "Swipe horizontal");
         Assert.assertTrue(swipeScreen.isCarrouselDisplayed());
-        Assert.assertTrue(swipeScreen.isCarrouselItem1Displayed());
-        /*swipeScreen.scrollToBottom();
-        Assert.assertTrue(swipeScreen.isWebdriverLogoDisplayed());
-        Assert.assertTrue(swipeScreen.isFoundMeTextDisplayed());
-        Assert.assertEquals(swipeScreen.getFoundMeText(), "You found me!!!");*/
+        Assert.assertTrue(swipeScreen.isCarrouselFirstItemVisible());
         Assert.assertTrue(swipeScreen.isDragScreenBarBtnDisplayed());
 
 

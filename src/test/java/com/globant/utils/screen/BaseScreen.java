@@ -154,4 +154,22 @@ public class BaseScreen {
 
         driver.perform(Collections.singletonList(sequence));
     }
+
+    public void scrollRight() {
+        Dimension size = driver.manage().window().getSize();
+
+        int startX = (int) (size.width * 0.75);
+        int endX = (int) (size.width * 0.25);
+        int startY = (int) (size.height * 0.8);
+
+        PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
+        Sequence sequence = new Sequence(finger1, 1)
+                .addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY))
+                .addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                .addAction(new Pause(finger1, Duration.ofMillis(400)))
+                .addAction(finger1.createPointerMove(Duration.ofMillis(200), PointerInput.Origin.viewport(), endX, startY))
+                .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+        driver.perform(Collections.singletonList(sequence));
+    }
 }
