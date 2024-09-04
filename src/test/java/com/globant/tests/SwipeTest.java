@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class SwipeTest extends BaseTest {
     @Test
-    private void testSwipe() {
+    public void testSwipe() {
         HomeScreen homeScreen = getHomeScreen();
         Assert.assertTrue(homeScreen.isSwipeScreenBarBtnDisplayed());
 

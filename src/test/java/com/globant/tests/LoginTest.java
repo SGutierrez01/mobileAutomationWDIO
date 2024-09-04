@@ -9,8 +9,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
+
     @Test
-    private void testLogin() {
+    public void testLogin() {
         HomeScreen homeScreen = getHomeScreen();
         Assert.assertTrue(homeScreen.isHomeImageDisplayed());
 

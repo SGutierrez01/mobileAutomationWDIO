@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class SignUpTest extends BaseTest {
 
     @Test
-    private void testSignUp() {
+    public void testSignUp() {
         HomeScreen homeScreen = getHomeScreen();
         Assert.assertTrue(homeScreen.isHomeImageDisplayed());
 

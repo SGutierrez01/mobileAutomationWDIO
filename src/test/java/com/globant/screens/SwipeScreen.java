@@ -4,8 +4,6 @@ import com.globant.utils.screen.BaseScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import java.util.List;
 
 public class SwipeScreen extends BaseScreen {
