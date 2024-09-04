@@ -6,12 +6,15 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
 public class SwipeScreen extends BaseScreen {
 
     private static final String SWIPE_TITLE = "UiSelector().text(\"Swipe horizontal\")";
     private static final String CARROUSEL = "UiSelector().className(\"android.view.ViewGroup\").instance(9)";
     private static final String CARROUSEL_FIRST_ITEM = "__CAROUSEL_ITEM_0_READY__";
     private static final String CARROUSEL_FINAL_ITEM = "__CAROUSEL_ITEM_5_READY__";
+    private static final String CARROUSEL_ITEMS = "UiSelector().description(\"card\")";
     private static final String WEBDRIVER_LOGO = "WebdriverIO logo";
     private static final String FOUND_ME_TEXT = "UiSelector().text(\"You found me!!!\")";
 
@@ -27,6 +30,9 @@ public class SwipeScreen extends BaseScreen {
 
     @AndroidFindBy(id = CARROUSEL_FINAL_ITEM)
     private WebElement carrouselFinalItem;
+
+    @AndroidFindBy(uiAutomator = CARROUSEL_ITEMS)
+    private List<WebElement> carrouselItems;
 
     @AndroidFindBy(accessibility = WEBDRIVER_LOGO)
     private WebElement webdriverLogo;
@@ -65,6 +71,10 @@ public class SwipeScreen extends BaseScreen {
 
     public boolean isCarrouselFinalItemVisible() {
         return isElementVisible(carrouselFinalItem);
+    }
+
+    public boolean isCarrouselFinalItemUnique() {
+        return carrouselItems.size() == 1;
     }
 
     public boolean isWebdriverLogoVisible() {

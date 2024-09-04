@@ -20,6 +20,7 @@ public class SwipeTest extends BaseTest {
         swipeRightUntilFound(swipeScreen);
         Assert.assertFalse(swipeScreen.isCarrouselFirstItemVisible());
         Assert.assertTrue(swipeScreen.isCarrouselFinalItemDisplayed());
+        Assert.assertTrue(swipeScreen.isCarrouselFinalItemUnique());
 
         swipeDownUntilFound(swipeScreen);
 
@@ -30,7 +31,10 @@ public class SwipeTest extends BaseTest {
 
     private void swipeRightUntilFound(SwipeScreen swipeScreen) {
         int attempts = 0;
-        while((swipeScreen.isCarrouselFirstItemVisible() || !swipeScreen.isCarrouselFinalItemVisible()) && attempts < 10){
+        while((swipeScreen.isCarrouselFirstItemVisible()
+                || !swipeScreen.isCarrouselFinalItemVisible()
+                || !swipeScreen.isCarrouselFinalItemUnique())
+                && attempts < 10){
             swipeScreen.scrollRight();
             attempts++;
         }
