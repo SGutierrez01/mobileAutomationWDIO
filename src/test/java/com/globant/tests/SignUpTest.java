@@ -3,11 +3,13 @@ package com.globant.tests;
 import com.globant.screens.HomeScreen;
 import com.globant.screens.LoginScreen;
 import com.globant.screens.SignUpScreen;
+import com.globant.utils.data.UserData;
 import com.globant.utils.test.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class SignUp extends BaseTest {
+public class SignUpTest extends BaseTest {
+
     @Test
     private void testSignUp() {
         HomeScreen homeScreen = getHomeScreen();
@@ -19,13 +21,14 @@ public class SignUp extends BaseTest {
         SignUpScreen signUpScreen = loginScreen.clickOnSignUpBtn();
 
         Assert.assertTrue(signUpScreen.isEmailInputDisplayed());
-        signUpScreen.setEmailInput("test@test.com");
-
+        String email = getRandomEmail();
+        signUpScreen.setEmailInput(email);
+        UserData.email = email;
         Assert.assertTrue(signUpScreen.isPasswordInputDisplayed());
-        signUpScreen.setPasswordInput("password");
+        signUpScreen.setPasswordInput(UserData.password);
 
         Assert.assertTrue(signUpScreen.isPasswordRepeatInputDisplayed());
-        signUpScreen.setPasswordRepeatInput("password");
+        signUpScreen.setPasswordRepeatInput(UserData.password);
 
         Assert.assertTrue(signUpScreen.isSignUpBtnDisplayed());
         signUpScreen.clickOnSignUpSubmitBtn();

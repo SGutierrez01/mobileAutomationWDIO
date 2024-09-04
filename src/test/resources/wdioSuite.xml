@@ -3,7 +3,12 @@
 <suite name="WDIO suite tests">
     <test name="Sign up Tests">
         <classes>
-            <class name="com.globant.tests.SignUp"/>
+            <class name="com.globant.tests.SignUpTest"/>
+        </classes>
+    </test>
+    <test name="Login Tests">
+        <classes>
+            <class name="com.globant.tests.LoginTest"/>
         </classes>
     </test>
 </suite>

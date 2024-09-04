@@ -5,7 +5,7 @@ import com.globant.utils.test.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class NavigationTests extends BaseTest{
+public class NavigationTest extends BaseTest{
 
     @Test
     public void testNavigation() {

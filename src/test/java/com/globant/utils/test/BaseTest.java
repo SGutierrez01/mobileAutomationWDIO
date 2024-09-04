@@ -52,4 +52,8 @@ public class BaseTest {
     protected HomeScreen getHomeScreen() {
         return new HomeScreen(driver);
     }
+
+    protected String getRandomEmail() {
+        return "test" + System.currentTimeMillis() + "@test.com";
+    }
 }

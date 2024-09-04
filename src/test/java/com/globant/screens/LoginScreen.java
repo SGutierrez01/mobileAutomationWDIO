@@ -12,6 +12,9 @@ public class LoginScreen extends BaseScreen {
     private static final String PASSWORD_FIELD = "input-password";
     private static final String LOGIN_BTN = "button-LOGIN";
     private static final String SIGN_UP_BTN = "button-sign-up-container";
+    private static final String LOGIN_SUCCESSFUL_TITLE = "android:id/alertTitle";
+    private static final String LOGIN_SUCCESSFUL_MESSAGE = "android:id/message";
+    private static final String LOGIN_SUCCESSFUL_OK_BTN = "android:id/button1";
 
     @AndroidFindBy(uiAutomator = LOGIN_TITLE)
     private WebElement loginTitle;
@@ -28,6 +31,14 @@ public class LoginScreen extends BaseScreen {
     @AndroidFindBy(accessibility = SIGN_UP_BTN)
     private WebElement signUpButton;
 
+    @AndroidFindBy(id = LOGIN_SUCCESSFUL_TITLE)
+    private WebElement loginSuccessful;
+
+    @AndroidFindBy(id = LOGIN_SUCCESSFUL_MESSAGE)
+    private WebElement loginSuccessfulMessage;
+
+    @AndroidFindBy(id = LOGIN_SUCCESSFUL_OK_BTN)
+    private WebElement loginSuccessfulOkBtn;
 
     public LoginScreen(AndroidDriver driver) {
         super(driver);
@@ -64,6 +75,11 @@ public class LoginScreen extends BaseScreen {
         return isElementDisplayed(loginButton);
     }
 
+    public void clickOnLoginBtn() {
+        isLoginBtnDisplayed();
+        loginButton.click();
+    }
+
     public boolean isSignUpBtnDisplayed() {
         return isElementDisplayed(signUpButton);
     }
@@ -83,5 +99,32 @@ public class LoginScreen extends BaseScreen {
     public void setPasswordInput(String password) {
         isPasswordInputDisplayed();
         passwordField.sendKeys(password);
+    }
+
+    public boolean isLoginSuccessfulDisplayed() {
+        return isElementDisplayed(loginSuccessful);
+    }
+
+    public String getLoginSuccessfulTitle() {
+        isLoginSuccessfulDisplayed();
+        return loginSuccessful.getText();
+    }
+
+    public boolean isLoginSuccessfulMessageDisplayed() {
+        return isElementDisplayed(loginSuccessfulMessage);
+    }
+
+    public String getLoginSuccessfulMessage() {
+        isLoginSuccessfulMessageDisplayed();
+        return loginSuccessfulMessage.getText();
+    }
+
+    public boolean isLoginSuccessfulOkBtnDisplayed() {
+        return isElementDisplayed(loginSuccessfulOkBtn);
+    }
+
+    public void clickOnLoginSuccessfulOkBtn() {
+        isLoginSuccessfulOkBtnDisplayed();
+        loginSuccessfulOkBtn.click();
     }
 }
