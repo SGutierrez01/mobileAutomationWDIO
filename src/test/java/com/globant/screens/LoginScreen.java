@@ -67,4 +67,21 @@ public class LoginScreen extends BaseScreen {
     public boolean isSignUpBtnDisplayed() {
         return isElementDisplayed(signUpButton);
     }
+
+    public SignUpScreen clickOnSignUpBtn() {
+        isSignUpBtnDisplayed();
+        signUpButton.click();
+        return new SignUpScreen(driver);
+    }
+
+
+    public void setEmailInput(String email) {
+        isEmailInputDisplayed();
+        emailField.sendKeys(email);
+    }
+
+    public void setPasswordInput(String password) {
+        isPasswordInputDisplayed();
+        passwordField.sendKeys(password);
+    }
 }
