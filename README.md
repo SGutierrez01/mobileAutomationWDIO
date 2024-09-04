@@ -3,20 +3,8 @@
 This project demonstrates the use of the **Page Object Model (POM)** design pattern with **Appium** and **TestNG** for mobile application test automation.
 
 ## Project Structure
-src/
-│
-└─── test/
-     └─── java/
-          └─── com.globant/
-               └─── screens/   // Contains classes representing the app screens.
-               └─── tests/     // Contains test classes.
-               └─── utils/     
-                    └─── data/    // Contains shared data across tests (e.g., UserData).
-                    └─── screen/  // Base screen classes for common interactions.
-                    └─── test/    // Base test classes for shared setup logic.
-     └─── resources/
-          └─── config.properties   // Configuration properties.
-          └─── wdioSuite.xml       // File to execute the complete test suite.
+
+<img width="298" alt="image" src="https://github.com/user-attachments/assets/4c340de8-b2a3-4d4f-9fbd-0c052ad5b252">
 
 
 - **screens**: Contains classes representing different app screens (LoginScreen, SwipeScreen, etc.).
