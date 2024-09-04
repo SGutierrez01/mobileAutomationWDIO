@@ -11,7 +11,8 @@ public class LoginScreen extends BaseScreen {
     private static final String EMAIL_FIELD = "input-email";
     private static final String PASSWORD_FIELD = "input-password";
     private static final String LOGIN_BTN = "button-LOGIN";
-    private static final String SIGN_UP_BTN = "button-sign-up-container";
+    private static final String LOGIN_SCREEN_BTN = "button-login-container";
+    private static final String SIGN_UP_SCREEN_BTN = "button-sign-up-container";
     private static final String LOGIN_SUCCESSFUL_TITLE = "android:id/alertTitle";
     private static final String LOGIN_SUCCESSFUL_MESSAGE = "android:id/message";
     private static final String LOGIN_SUCCESSFUL_OK_BTN = "android:id/button1";
@@ -28,8 +29,11 @@ public class LoginScreen extends BaseScreen {
     @AndroidFindBy(accessibility = LOGIN_BTN)
     private WebElement loginButton;
 
-    @AndroidFindBy(accessibility = SIGN_UP_BTN)
-    private WebElement signUpButton;
+    @AndroidFindBy(accessibility = LOGIN_SCREEN_BTN)
+    private WebElement loginScreenBtn;
+
+    @AndroidFindBy(accessibility = SIGN_UP_SCREEN_BTN)
+    private WebElement signUpScreenButton;
 
     @AndroidFindBy(id = LOGIN_SUCCESSFUL_TITLE)
     private WebElement loginSuccessful;
@@ -81,15 +85,24 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isSignUpBtnDisplayed() {
-        return isElementDisplayed(signUpButton);
+        return isElementDisplayed(signUpScreenButton);
     }
 
     public SignUpScreen clickOnSignUpBtn() {
         isSignUpBtnDisplayed();
-        signUpButton.click();
+        signUpScreenButton.click();
         return new SignUpScreen(driver);
     }
 
+    public boolean isLoginScreenBtnDisplayed() {
+        return isElementDisplayed(loginScreenBtn);
+    }
+
+    public LoginScreen clickOnLoginScreenBtn() {
+        isElementDisplayed(loginScreenBtn);
+        loginScreenBtn.click();
+        return new LoginScreen(driver);
+    }
 
     public void setEmailInput(String email) {
         isEmailInputDisplayed();

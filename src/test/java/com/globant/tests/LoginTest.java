@@ -2,6 +2,7 @@ package com.globant.tests;
 
 import com.globant.screens.HomeScreen;
 import com.globant.screens.LoginScreen;
+import com.globant.screens.SignUpScreen;
 import com.globant.utils.data.UserData;
 import com.globant.utils.test.BaseTest;
 import org.testng.Assert;
@@ -15,6 +16,10 @@ public class LoginTest extends BaseTest {
 
         LoginScreen loginScreen = homeScreen.clickOnLoginScreenBarBtn();
         Assert.assertTrue(loginScreen.isLoginTitleDisplayed());
+
+        if(UserData.email == null) {
+            loginScreen = signUpNewUser(loginScreen);
+        }
 
         Assert.assertTrue(loginScreen.isEmailInputDisplayed());
         loginScreen.setEmailInput(UserData.email);
@@ -34,5 +39,33 @@ public class LoginTest extends BaseTest {
         loginScreen.clickOnLoginSuccessfulOkBtn();
 
         Assert.assertTrue(loginScreen.isLoginTitleDisplayed());
+    }
+
+    private LoginScreen signUpNewUser(LoginScreen loginScreen) {
+        SignUpScreen signUpScreen = loginScreen.clickOnSignUpBtn();
+        Assert.assertTrue(signUpScreen.isEmailInputDisplayed());
+
+        String email = getRandomEmail();
+        signUpScreen.setEmailInput(email);
+        UserData.email = email;
+
+        Assert.assertTrue(signUpScreen.isPasswordInputDisplayed());
+        signUpScreen.setPasswordInput(UserData.password);
+
+        Assert.assertTrue(signUpScreen.isPasswordRepeatInputDisplayed());
+        signUpScreen.setPasswordRepeatInput(UserData.password);
+
+        Assert.assertTrue(signUpScreen.isSignUpBtnDisplayed());
+        signUpScreen.clickOnSignUpSubmitBtn();
+
+        Assert.assertTrue(signUpScreen.isSignUpSuccessfulDisplayed());
+        Assert.assertEquals(signUpScreen.getSignUpSuccessfulTitle(), "Signed Up!");
+        Assert.assertTrue(signUpScreen.isSignUpSuccessfulMessageDisplayed());
+        Assert.assertEquals(signUpScreen.getSignUpSuccessfulMessage(), "You successfully signed up!");
+        Assert.assertTrue(signUpScreen.isSignUpSuccessfulOkBtnDisplayed());
+        signUpScreen.clickOnSignUpSuccessfulOkBtn();
+
+        Assert.assertTrue(loginScreen.isLoginScreenBtnDisplayed());
+        return loginScreen.clickOnLoginScreenBtn();
     }
 }
