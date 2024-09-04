@@ -56,7 +56,7 @@ public class NavigationTest extends BaseTest{
         Assert.assertTrue(swipeScreen.isWebdriverLogoDisplayed());
         Assert.assertTrue(swipeScreen.isFoundMeTextDisplayed());
         Assert.assertEquals(swipeScreen.getFoundMeText(), "You found me!!!");*/
-        Assert.assertTrue(swipeScreen.isDragBarBtnDisplayed());
+        Assert.assertTrue(swipeScreen.isDragScreenBarBtnDisplayed());
 
 
         DragScreen dragScreen = swipeScreen.clickOnDragScreenBarBtn();

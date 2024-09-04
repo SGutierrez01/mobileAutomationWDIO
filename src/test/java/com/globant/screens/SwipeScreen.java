@@ -4,6 +4,7 @@ import com.globant.utils.screen.BaseScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SwipeScreen extends BaseScreen {
 
@@ -49,6 +50,10 @@ public class SwipeScreen extends BaseScreen {
         return isElementDisplayed(carrouselItem1);
     }
 
+    public boolean isWebdriverLogoVisible() {
+        return isElementVisible(webdriverLogo);
+    }
+
     public boolean isWebdriverLogoDisplayed() {
         return isElementDisplayed(webdriverLogo);
     }
@@ -57,12 +62,12 @@ public class SwipeScreen extends BaseScreen {
         return isElementDisplayed(foundMeText);
     }
 
+    public boolean isFoundMeTextVisible() {
+        return isElementVisible(foundMeText);
+    }
+
     public String getFoundMeText() {
         isElementDisplayed(foundMeText);
         return foundMeText.getText();
-    }
-
-    public boolean isDragBarBtnDisplayed() {
-        return isElementDisplayed(carrousel);
     }
 }
