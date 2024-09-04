@@ -35,35 +35,33 @@ public class NavigationTests extends BaseTest{
         Assert.assertTrue(loginScreen.isFormsScreenBarBtnDisplayed());
 
         FormsScreen formsScreen = loginScreen.clickOnFormsScreenBarBtn();
-        /*Assert.assertTrue(formsScreen.isFormsTitleDisplayed());
-        Assert.assertEquals(formsScreen.getFormsTitleText(), "Form Components");
+        Assert.assertTrue(formsScreen.isFormsTitleDisplayed());
+        Assert.assertEquals(formsScreen.getFormsTitleText(), "Form components");
         Assert.assertTrue(formsScreen.isInputFieldTitleDisplayed());
-        Assert.assertEquals(formsScreen.getInputFieldTitleText(), "Input Field");
+        Assert.assertEquals(formsScreen.getInputFieldTitleText(), "Input field:");
         Assert.assertTrue(formsScreen.isInputFieldInputDisplayed());
         Assert.assertTrue(formsScreen.isSwitchTitleDisplayed());
         Assert.assertEquals(formsScreen.getSwitchTitleText(), "Switch:");
         Assert.assertTrue(formsScreen.isSwitchDisplayed());
         Assert.assertTrue(formsScreen.isActiveBtnDisplayed());
-        Assert.assertEquals(formsScreen.getActiveBtnText(), "Active");
         Assert.assertTrue(formsScreen.isInactiveBtnDisplayed());
-        Assert.assertEquals(formsScreen.getInactiveBtnText(), "Inactive");
-        Assert.assertTrue(formsScreen.isSwipeBarBtnDisplayed());
+        Assert.assertTrue(formsScreen.isSwipeScreenBarBtnDisplayed());
 
-        SwipeScreen swipeScreen = formsScreen.clickOnSwipeBarBtn();
+        SwipeScreen swipeScreen = formsScreen.clickOnSwipeScreenBarBtn();
         Assert.assertTrue(swipeScreen.isSwipeTitleDisplayed());
         Assert.assertEquals(swipeScreen.getSwipeTitleText(), "Swipe horizontal");
         Assert.assertTrue(swipeScreen.isCarrouselDisplayed());
         Assert.assertTrue(swipeScreen.isCarrouselItem1Displayed());
-        swipeScreen.scrollToBottom();
+        /*swipeScreen.scrollToBottom();
         Assert.assertTrue(swipeScreen.isWebdriverLogoDisplayed());
         Assert.assertTrue(swipeScreen.isFoundMeTextDisplayed());
-        Assert.assertEquals(swipeScreen.getFoundMeText(), "You found me!!!");
+        Assert.assertEquals(swipeScreen.getFoundMeText(), "You found me!!!");*/
         Assert.assertTrue(swipeScreen.isDragBarBtnDisplayed());
 
 
-        DragScreen dragScreen = swipeScreen.clickOnDragBarBtn();
+        DragScreen dragScreen = swipeScreen.clickOnDragScreenBarBtn();
         Assert.assertTrue(dragScreen.isDragTitleDisplayed());
         Assert.assertEquals(dragScreen.getDragTitleText(), "Drag and Drop");
-        Assert.assertTrue(dragScreen.isDraggableItemDisplayed());*/
+        Assert.assertTrue(dragScreen.isDraggableItemDisplayed());
     }
 }

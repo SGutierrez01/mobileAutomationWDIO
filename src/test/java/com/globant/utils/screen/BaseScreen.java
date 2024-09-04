@@ -1,10 +1,15 @@
 package com.globant.utils.screen;
 
 import com.globant.screens.*;
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import org.apache.logging.log4j.core.Logger;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -17,29 +22,29 @@ public class BaseScreen {
 
     public static Logger logger;
 
-    protected static final String HOME_PAGE_BAR_BTN = "Home";
-    protected static final String WEBVIEW_PAGE_BAR_BTN = "Webview";
-    protected static final String LOGIN_PAGE_BAR_BTN = "Login";
-    protected static final String FORMS_PAGE_BAR_BTN = "Forms";
-    protected static final String SWIPE_PAGE_BAR_BTN = "Swipe";
-    protected static final String DRAG_AND_DROP_PAGE_BAR_BTN = "Drag";
+    protected static final String HOME_SCREEN_BAR_BTN = "Home";
+    protected static final String WEBVIEW_SCREEN_BAR_BTN = "Webview";
+    protected static final String LOGIN_SCREEN_BAR_BTN = "Login";
+    protected static final String FORMS_SCREEN_BAR_BTN = "Forms";
+    protected static final String SWIPE_SCREEN_BAR_BTN = "UiSelector().description(\"Swipe\")";
+    protected static final String DRAG_AND_DROP_SCREEN_BAR_BTN = "Drag";
 
-    @AndroidFindBy(accessibility = HOME_PAGE_BAR_BTN)
+    @AndroidFindBy(accessibility = HOME_SCREEN_BAR_BTN)
     protected WebElement homeScreenBarBtn;
 
-    @AndroidFindBy(accessibility = WEBVIEW_PAGE_BAR_BTN)
+    @AndroidFindBy(accessibility = WEBVIEW_SCREEN_BAR_BTN)
     protected WebElement webviewScreenBarBtn;
 
-    @AndroidFindBy(accessibility = LOGIN_PAGE_BAR_BTN)
+    @AndroidFindBy(accessibility = LOGIN_SCREEN_BAR_BTN)
     protected WebElement loginScreenBarBtn;
 
-    @AndroidFindBy(accessibility = FORMS_PAGE_BAR_BTN)
+    @AndroidFindBy(accessibility = FORMS_SCREEN_BAR_BTN)
     protected WebElement formsScreenBarBtn;
 
-    @AndroidFindBy(accessibility = SWIPE_PAGE_BAR_BTN)
+    @AndroidFindBy(uiAutomator = SWIPE_SCREEN_BAR_BTN)
     protected WebElement swipeScreenBarBtn;
 
-    @AndroidFindBy(accessibility = DRAG_AND_DROP_PAGE_BAR_BTN)
+    @AndroidFindBy(accessibility = DRAG_AND_DROP_SCREEN_BAR_BTN)
     protected WebElement dragAndDropScreenBarBtn;
 
     protected AndroidDriver driver;
@@ -120,5 +125,8 @@ public class BaseScreen {
 
     public boolean isDragScreenBarBtnDisplayed() {
         return isElementDisplayed(dragAndDropScreenBarBtn);
+    }
+
+    public void scrollToBottom() {
     }
 }
